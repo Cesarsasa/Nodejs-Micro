@@ -15,7 +15,7 @@ exports.create = (req, res) => {
 
     // Create a Client, definiendo una variable con la estructura del reques para luego solo ser enviada como parametro mas adelante. 
     const libro = {
-        
+        id_libro: req.body.id_libro,
         titulo: req.body.titulo,
         autor: req.body.autor,
         ano: req.body.ano, 
