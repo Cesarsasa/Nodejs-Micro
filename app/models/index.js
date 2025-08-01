@@ -35,21 +35,25 @@ db.proveedors =  require("./proveedor.model.js")(sequelize,Sequelize);
 db.pedidos=  require("./pedido.model.js")(sequelize,Sequelize);
 db.productos =  require("./producto.model.js")(sequelize,Sequelize);
 db.detalle_pedidos =  require("./detalle_pedido.model.js")(sequelize,Sequelize);
+db.libros=  require("./libro.model.js")(sequelize,Sequelize);
+db.estudiantes =  require("./estudiante.model.js")(sequelize,Sequelize);
+db.prestamos =  require("./prestamo.model.js")(sequelize,Sequelize);
+
 //db.clientes =  require("./cliente.model.js")(sequelize,Sequelize);
 // puede seguir agregando mas modelos e importarlos de la seguiente manera
 //db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
 // se utiliza el export para que el objeto db pueda ser accedio a travez de otras clases. 
-db.clientes.hasMany(db.pedidos, { foreignKey: 'id_cliente' });
+/*db.clientes.hasMany(db.pedidos, { foreignKey: 'id_cliente' });
 // Un pedido pertenece a un cliente
-db.pedidos.belongsTo(db.clientes, { foreignKey: 'id_cliente' });
+db.pedidos.belongsTo(db.clientes, { foreignKey: 'id_cliente' });*/
 
-db.productos.hasMany(db.detalle_pedidos, { foreignKey: 'id_producto' });
+db.libros.hasMany(db.prestamos, { foreignKey: 'id_libro' });
 // Un pedido pertenece a un cliente
-db.detalle_pedidos.belongsTo(db.productos, { foreignKey: 'id_producto' });
+db.prestamos.belongsTo(db.libros, { foreignKey: 'id_libro' });
 
 
-db.pedidos.hasMany(db.detalle_pedidos, { foreignKey: 'id_pedido' });
+db.estudiantes.hasMany(db.prestamos, { foreignKey: 'id_estudiante' });
 // Un pedido pertenece a un cliente
-db.detalle_pedidos.belongsTo(db.pedidos, { foreignKey: 'id_pedido' });
+db.prestamos.belongsTo(db.estudiantes, { foreignKey: 'id_estudiante' });
 
 module.exports = db;

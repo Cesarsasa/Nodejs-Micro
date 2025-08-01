@@ -40,11 +40,11 @@ exports.create = (req, res) => {
 };
 
 // Retrieve all Client from the database.
-Libro.findAll = (req, res) => {
+exports.findAll = (req, res) => {
     const titulo = req.query.titulo;
     var condition = titulo ? { titulo: { [Op.iLike]: `%${titulo}%` } } : null;
 
-    Producto.findAll({ where: condition })
+    Libro.findAll({ where: condition })
         .then(data => {
             res.send(data);
         })
@@ -57,7 +57,7 @@ Libro.findAll = (req, res) => {
 };
 
 // Find a single Tutorial with an id
-Libro.findOne = (req, res) => {
+exports.findOne = (req, res) => {
     const id = req.params.id;
 
     Producto.findByPk(id)
@@ -72,7 +72,7 @@ Libro.findOne = (req, res) => {
 };
 
 // Update a Tutorial by the id in the request
-Libro.update = (req, res) => {
+exports.update = (req, res) => {
     const id = req.params.id;
 
     Producto.update(req.body, {

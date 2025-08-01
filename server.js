@@ -37,6 +37,9 @@ require("./app/routes/detalle_pedido.routes")(app);
 require("./app/routes/dep.routes")(app);
 require("./app/routes/empleados.routes")(app);
 require("./app/routes/proveedor.routes")(app);
+require("./app/routes/libro.routes")(app);
+require("./app/routes/estudiante.routes")(app);
+require("./app/routes/prestamo.routes")(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 8082;
 app.listen(PORT, () => {
