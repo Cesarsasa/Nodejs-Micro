@@ -1,21 +1,21 @@
 module.exports = app => {
-    const Estudiante = require("../controllers/prestamo.controller.js");
+    const prestamo = require("../controllers/prestamo.controller.js");
     var router = require("express").Router();
     // Create a new Client
-    router.post("/create/", Estudiante.create);
+    router.post("/create/", prestamo.create);
     // Retrieve all Client
-    router.get("/", Estudiante.findAll);
+    router.get("/", prestamo.findAll);
     // Retrieve all published Client
-    router.get("/status", Estudiante.findAllStatus);
+    router.get("/status", prestamo.findAllStatus);
     // Retrieve a single Client with id
-    router.get("/:id", Estudiante.findOne);
+    router.get("/:id", prestamo.findOne);
     // Update a Client with id
-    router.put("/update/:id", Estudiante.update);
+    router.put("/update/:id", prestamo.update);
     // Delete a Client with id
-    router.delete("/delete/:id", Estudiante.delete);
+    router.delete("/delete/:id", prestamo.delete);
     // Delete all Cliente
-    router.delete("/delete/", Estudiante.deleteAll);
+    router.delete("/delete/", prestamo.deleteAll);
     // Podemos utilizar como una ocpion app.use("EndPoint",router" para simplicar el URI
     // Ej.  http://localhost:Puerto/api/cliente/
-    app.use("/api/estudiante", router);
+    app.use("/api/prestamo", router);
 };
