@@ -60,7 +60,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
     const id = req.params.id;
 
-    Producto.findByPk(id)
+    Libro.findByPk(id)
         .then(data => {
             res.send(data);
         })
@@ -75,7 +75,7 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
     const id = req.params.id;
 
-    Producto.update(req.body, {
+    Libro.update(req.body, {
         where: { id_libro: id }
     })
         .then(num => {
